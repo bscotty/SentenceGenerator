@@ -35,7 +35,7 @@ public class Words {
         RBS ("RBS", "Superlative Adverb", Words.RBS_WORDS),
         //RP ("Misc", "Particle"),
         //SYM ("Misc", "Symbol"),
-        //TO ("TO", "to", Words.TO_WORDS),
+        TO ("TO", "to", Words.TO_WORDS),
         //UH ("Misc", "Interjection"),
         //VB ("VB", "Verb", Words.VB_WORDS),
         //VBD ("VBD", "Past Tense Verb", Words.VBD_WORDS),
@@ -107,7 +107,7 @@ public class Words {
     //private static String[] RP_WORDS = {""};
     //private static String[] SYM_WORDS = {""};
 
-    //private static String[] TO_WORDS = {"to"};
+    private static String[] TO_WORDS = {"to"};
 
     //private static String[] UH_WORDS = {""};
 
@@ -129,14 +129,10 @@ public class Words {
     // Generic Word Getter
     // -------------------------------------------------
     public static String getWordFromTag(TreebankTags tag) {
-        return getWordFromTag(tag, false);
-    }
-
-    public static String getWordFromTag(TreebankTags tag, boolean debug) {
         int i = (int) (Math.random() * tag.exampleWords.length);
         if(tag.exampleWords != null) {
-            if(!debug) {
-                System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
+            if(Generator.ShowRules) {
+                System.out.println("Using Generated Terminal Rule: " + tag.tag + " --> " + tag.exampleWords[i]);
             }
             return tag.exampleWords[i];
         } else {
@@ -177,7 +173,11 @@ public class Words {
                     Scanner wordStream = new Scanner(words);
                     ArrayList<String> w = new ArrayList<>();
                     while(wordStream.hasNext()) {
-                        w.add(wordStream.next());
+                        String aWord = wordStream.next();
+                        if(aWord.contains("-")) {
+                            aWord = aWord.replaceAll("-", " ");
+                        }
+                        w.add(aWord);
                     }
                     wordStream.close();
                     t.exampleWords = new String[w.size()];

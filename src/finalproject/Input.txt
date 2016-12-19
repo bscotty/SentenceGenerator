@@ -28,7 +28,7 @@ NNS
 primates tools aliens ponies players orcs conquistadors dogs
 
 NNP
-Adam Meyers New York University Brexit
+Adam-Meyers New-York-University Brexit
 
 NNPS
 Kardashians Obamas Kennedys Americas
@@ -41,6 +41,9 @@ worse farther less better
 
 RBS
 worst farthest least best
+
+TO
+to
 
 VBP
 eat do engage engulf enrage
