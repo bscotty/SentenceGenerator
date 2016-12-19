@@ -13,12 +13,12 @@ public class Words {
         CC ("CD", "Coordinating Conjunction", Words.CC_WORDS),
         //CD ("Misc", "Cardinal Number"),
         DT ("DT", "Determiner", Words.DT_WORDS),
-        DTS ("DT", "Determiner", Words.PLURAL_DT_WORDS),
+        DTS ("DTS", "Plural Determiner", Words.PLURAL_DT_WORDS),
         //EX ("Misc", "Existential There"),
         //FW ("Misc", "Foreign Word"),
         IN ("IN", "Preposition", Words.IN_WORDS),
         JJ ("JJ", "Adjective", Words.JJ_WORDS),
-        JJR ("JJ", "Comparative Adjective", Words.JJR_WORDS),
+        JJR ("JJR", "Comparative Adjective", Words.JJR_WORDS),
         JJS ("JJS", "Superlative Adjective", Words.JJS_WORDS),
         //LS ("Misc", "List Item Marker"),
         //MD ("Misc", "Modal"),
@@ -111,10 +111,10 @@ public class Words {
 
     //private static String[] UH_WORDS = {""};
 
-    private static String[] VB_WORDS = {"expunge"};
-    private static String[] VBD_WORDS = {"were"};
-    private static String[] VBG_WORDS = {"asking"};
-    private static String[] VBN_WORDS = {"looked"};
+    //private static String[] VB_WORDS = {"expunge"};
+    //private static String[] VBD_WORDS = {"were"};
+    //private static String[] VBG_WORDS = {"asking"};
+    //private static String[] VBN_WORDS = {"looked"};
     private static String[] VBP_WORDS = {"eat", "do", "engage", "engulf", "enrage"};
     private static String[] VBZ_WORDS = {"eats", "does", "engages", "engulfs", "enrages"};
 
@@ -135,7 +135,7 @@ public class Words {
     public static String getWordFromTag(TreebankTags tag, boolean debug) {
         int i = (int) (Math.random() * tag.exampleWords.length);
         if(tag.exampleWords != null) {
-            if(debug) {
+            if(!debug) {
                 System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
             }
             return tag.exampleWords[i];
@@ -156,6 +156,7 @@ public class Words {
         try {
             s = new Scanner(input);
             createWordBankFromCustomWB(s);
+            s.close();
         } catch (java.io.FileNotFoundException e) {
             System.out.println("File not found. Exiting.");
             System.exit(-1);
@@ -169,11 +170,13 @@ public class Words {
                 if (t.tag.equals(line)) {
                     // We can move to the next line and get all of the words that should be on it.
                     String words = s.nextLine();
+                    System.out.println("Words found for " + t.tag + ": " + words);
                     Scanner wordStream = new Scanner(words);
                     ArrayList<String> w = new ArrayList<>();
                     while(wordStream.hasNext()) {
                         w.add(wordStream.next());
                     }
+                    wordStream.close();
                     t.exampleWords = new String[w.size()];
                     for (int i = 0; i < w.size(); i++) {
                         t.exampleWords[i] = w.get(i);
