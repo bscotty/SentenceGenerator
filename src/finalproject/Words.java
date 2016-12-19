@@ -10,7 +10,7 @@ public class Words {
     // -------------------------------------------------
     // Note: this is here mostly to help me keep track of what I needed to account for.
     public enum TreebankTags {
-        CC ("CD", "Coordinating Conjunction", Words.CC_WORDS),
+        CC ("CC", "Coordinating Conjunction", Words.CC_WORDS),
         //CD ("Misc", "Cardinal Number"),
         DT ("DT", "Determiner", Words.DT_WORDS),
         DTS ("DTS", "Plural Determiner", Words.PLURAL_DT_WORDS),
