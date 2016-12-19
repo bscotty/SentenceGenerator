@@ -8,6 +8,10 @@ public class Generator {
      * The Main Activity runs the sentence generator.
      */
     public static void main(String[] args) {
+        if(args.length == 1) {
+            Words.initFromCustomWB(args[0]);
+        }
+
         String sentence = generateSentence();
         sentence = sentence.substring(0, 1).toUpperCase() + sentence.substring(1);
         sentence += Words.getWordFromTag(TreebankTags.PU);

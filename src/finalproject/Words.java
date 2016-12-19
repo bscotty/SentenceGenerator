@@ -1,5 +1,9 @@
 package finalproject;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Words {
     // -------------------------------------------------
     // Treebank Tags
@@ -33,10 +37,10 @@ public class Words {
         //SYM ("Misc", "Symbol"),
         TO ("TO", "to", Words.TO_WORDS),
         //UH ("Misc", "Interjection"),
-        VB ("VB", "Verb", Words.VB_WORDS),
-        VBD ("VBD", "Past Tense Verb", Words.VBD_WORDS),
-        VBG ("VBG", "Gerund / Present Participle", Words.VBG_WORDS),
-        VBN ("VBN", "Past Participle", Words.VBN_WORDS),
+        //VB ("VB", "Verb", Words.VB_WORDS),
+        //VBD ("VBD", "Past Tense Verb", Words.VBD_WORDS),
+        //VBG ("VBG", "Gerund / Present Participle", Words.VBG_WORDS),
+        //VBN ("VBN", "Past Participle", Words.VBN_WORDS),
         VBP ("VBP", "Singular Present (Non-3rd Person) Verb", Words.VBP_WORDS),
         VBZ ("VBZ", "Singular Present (3rd Person) Verb", Words.VBZ_WORDS),
         //WDT ("Determiner", "wh-determiner"),
@@ -47,7 +51,7 @@ public class Words {
 
         private final String tag;
         private final String name;
-        private final String[] exampleWords;
+        private String[] exampleWords;
 
         private TreebankTags (String t, String n, String[] words) {
             tag = t;
@@ -130,10 +134,53 @@ public class Words {
 
     public static String getWordFromTag(TreebankTags tag, boolean debug) {
         int i = (int) (Math.random() * tag.exampleWords.length);
-        if(debug) {
-            System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
+        if(tag.exampleWords != null) {
+            if(debug) {
+                System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
+            }
+            return tag.exampleWords[i];
+        } else {
+            return "";
         }
-        return tag.exampleWords[i];
+    }
+
+    // -------------------------------------------------
+    // Initializer
+    // -------------------------------------------------
+    public static void initFromCustomWB(String filepath) {
+        for (TreebankTags t : TreebankTags.values()) {
+            t.exampleWords = null;
+        }
+        File input = new File(filepath);
+        Scanner s;
+        try {
+            s = new Scanner(input);
+            createWordBankFromCustomWB(s);
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("File not found. Exiting.");
+            System.exit(-1);
+        }
+    }
+
+    private static void createWordBankFromCustomWB(Scanner s) {
+        while(s.hasNextLine()) {
+            String line = s.nextLine();
+            for (TreebankTags t : TreebankTags.values()) {
+                if (t.tag.equals(line)) {
+                    // We can move to the next line and get all of the words that should be on it.
+                    String words = s.nextLine();
+                    Scanner wordStream = new Scanner(words);
+                    ArrayList<String> w = new ArrayList<>();
+                    while(wordStream.hasNext()) {
+                        w.add(wordStream.next());
+                    }
+                    t.exampleWords = new String[w.size()];
+                    for (int i = 0; i < w.size(); i++) {
+                        t.exampleWords[i] = w.get(i);
+                    }
+                }
+            }
+        }
     }
 
 }
