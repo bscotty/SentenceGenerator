@@ -1,55 +1,52 @@
 // Put your words under their respective PoS in the header file, separated by spaces.
 
 CC
-conjunction
+and or
 
 DT
-determiner
+a no the another each that this any
 
 DTS
-determiners
+every some either neither these those all both
 
 IN
-in
+in from with
 
 JJ
-adjective
+happy-go-lucky fourth fourth-largest superior nonhuman higgildy-piggildy warm strange cozy
 
 JJR
-adjectiver
+better worse happier sadder
 
 JJS
-adjectivest
+best worst happiest saddest
 
 NN
-noun
+science fiction slalom hootenanny kerfuffle inquisition dog
 
 NNS
-nouns
+primates tools aliens ponies players orcs conquistadors dogs
 
 NNP
-Noun
+Adam Meyers New York University Brexit
 
 NNPS
-Nouns
+Kardashians Obamas Kennedys Americas
 
 RB
-adverbly
+badly a-little well excitedly
 
 RBR
-moreadverbly
+worse farther less better
 
 RBS
-mostadverbly
-
-TO
-to
+worst farthest least best
 
 VBP
-verb
+eat do engage engulf enrage
 
 VBZ
-verbs
+eats does engages engulfs enrages
 
 PU
 .
