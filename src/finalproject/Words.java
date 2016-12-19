@@ -43,7 +43,7 @@ public class Words {
         //WP ("Noun", "Wh-pronoun"),
         //WPS ("Noun", "Possessive wh-pronoun"),
         //WRB ("Adverb", "Wh-adverb"),
-        PU ("Misc", "Punctuation", Words.PU_WORDS);
+        PU ("PU", "Punctuation", Words.PU_WORDS);
 
         private final String tag;
         private final String name;
@@ -68,16 +68,15 @@ public class Words {
 
     private static String[] DT_WORDS = {"a", /*"an",*/ "no", "the", "another", "each",
             "that","this", "any"};
-    private static String[] PLURAL_DT_WORDS = {"every", "some", "either" /* Remove? */,
-            "neither" /* Remove? */, "these", "those", "all", "both" };
+    private static String[] PLURAL_DT_WORDS = {"every", "some", "either", "neither", "these", "those", "all", "both" };
 
     //private static String[] EX_WORDS = {""};
     //private static String[] FW_WORDS = {""};
 
     private static String[] IN_WORDS = {"in", "from", "with"};
 
-    private static String[] JJ_WORDS = {"happy-go-lucky", "fourth", "fourth-largest",
-            "superior", "nonhuman", "many", "higgildy-piggildy", "warm", "strange", "cozy"};
+    private static String[] JJ_WORDS = {"happy-go-lucky", "fourth", "fourth-largest", "superior", "nonhuman",
+            "higgildy-piggildy", "warm", "strange", "cozy"};
     private static String[] JJR_WORDS = {"better", "worse", "happier", "sadder"};
     private static String[] JJS_WORDS = {"best", "worst", "happiest", "saddest"};
 
@@ -122,60 +121,6 @@ public class Words {
 
     public static String[] PU_WORDS = {"."};
 
-
-    // -------------------------------------------------
-    // Word Getters
-    // -------------------------------------------------
-    public static String getCCWord() { return getRandomWordFromList(Words.CC_WORDS); }
-
-    public static String getDTWord() { return getRandomWordFromList(Words.DT_WORDS); }
-
-    public static String getPluralDTWord() { return getRandomWordFromList(Words.PLURAL_DT_WORDS); }
-
-    public static String getINWord() { return getRandomWordFromList(Words.IN_WORDS); }
-
-    // -------------------------------------------------
-    // Adjective Getters
-    // -------------------------------------------------
-
-    public static String getJJWord() { return getRandomWordFromList(Words.JJ_WORDS); }
-
-    public static String getJJRWord() { return getRandomWordFromList(Words.JJR_WORDS); }
-
-    public static String getJJSWord() { return getRandomWordFromList(Words.JJS_WORDS); }
-
-    // -------------------------------------------------
-    // Noun Getters
-    // -------------------------------------------------
-
-    public static String getNNWord() { return getRandomWordFromList(Words.NN_WORDS); }
-
-    public static String getNNSWord() { return getRandomWordFromList(Words.NNS_WORDS); }
-
-    public static String getNNPWord() { return getRandomWordFromList(Words.NNP_WORDS); }
-
-    public static String getNNPSWord() { return getRandomWordFromList(Words.NNPS_WORDS); }
-
-    // -------------------------------------------------
-    // Adverb Getters
-    // -------------------------------------------------
-    public static String getRBWord() { return getRandomWordFromList(Words.RB_WORDS); }
-
-    public static String getRBRWord() { return getRandomWordFromList(Words.RBR_WORDS); }
-
-    public static String getRBSWord() { return getRandomWordFromList(Words.RBS_WORDS); }
-
-
-    // -------------------------------------------------
-    // Verb Getters
-    // -------------------------------------------------
-
-    public static String getVBWord() { return getRandomWordFromList(Words.VB_WORDS); }
-
-    public static String getVBPWord() { return getRandomWordFromList(Words.VBP_WORDS); }
-
-    public static String getVBZWord() { return getRandomWordFromList(Words.VBZ_WORDS); }
-
     // -------------------------------------------------
     // Generic Word Getter
     // -------------------------------------------------
@@ -183,11 +128,6 @@ public class Words {
         int i = (int) (Math.random() * tag.exampleWords.length);
         System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
         return tag.exampleWords[i];
-    }
-
-    private static String getRandomWordFromList(String[] wordList) {
-        int i = (int) (Math.random() * wordList.length);
-        return wordList[i];
     }
 
 }
