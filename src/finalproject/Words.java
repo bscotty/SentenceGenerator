@@ -125,8 +125,14 @@ public class Words {
     // Generic Word Getter
     // -------------------------------------------------
     public static String getWordFromTag(TreebankTags tag) {
+        return getWordFromTag(tag, false);
+    }
+
+    public static String getWordFromTag(TreebankTags tag, boolean debug) {
         int i = (int) (Math.random() * tag.exampleWords.length);
-        System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
+        if(debug) {
+            System.out.println("Getting word \"" + tag.exampleWords[i] + "\" for PoS " + tag.tag + ":" + tag.name);
+        }
         return tag.exampleWords[i];
     }
 
