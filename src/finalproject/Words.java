@@ -70,8 +70,8 @@ public class Words {
 
     //private static String[] CD_WORDS = {""};
 
-    private static String[] DT_WORDS = {"a", /*"an",*/ "no", "the", "another", "each",
-            "that","this", "any"};
+    private static String[] DT_WORDS = {"a", "no", "the", "another", "each", "every", "some", "either", "neither",
+            "that", "this", "any"};
     private static String[] PLURAL_DT_WORDS = {"every", "some", "either", "neither", "these", "those", "all", "both" };
 
     //private static String[] EX_WORDS = {""};
@@ -88,7 +88,7 @@ public class Words {
     //private static String[] MD_WORDS = {""};
 
     private static String[] NN_WORDS = {"science", "fiction", "slalom", "hootenanny",
-            "kerfuffle", "inquisition"};
+            "kerfuffle", "inquisition", "dog"};
     private static String[] NNS_WORDS = {"primates", "tools", "aliens", "ponies",
             "players", "orcs", "conquistadors"};
     private static String[] NNP_WORDS = {"Adam Meyers", "New York University", "Brexit"};

@@ -4,7 +4,7 @@ CC
 and or
 
 DT
-a no the another each that this any
+a no the another each every some either neither each that this any
 
 DTS
 every some either neither these those all both
