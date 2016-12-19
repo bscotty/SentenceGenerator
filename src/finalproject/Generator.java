@@ -8,8 +8,8 @@ public class Generator {
      * The Main Activity runs the sentence generator.
      */
     public static void main(String[] args) {
+        Words.printSupportedPoS();
         if(args.length == 1) {
-            Words.printSupportedPoS();
             Words.initFromCustomWB(args[0]);
         }
 
