@@ -1,3 +1,5 @@
+// Put your words under their respective PoS in the header file, separated by spaces.
+
 CC
 conjunction
 
