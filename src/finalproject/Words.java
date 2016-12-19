@@ -35,7 +35,7 @@ public class Words {
         RBS ("RBS", "Superlative Adverb", Words.RBS_WORDS),
         //RP ("Misc", "Particle"),
         //SYM ("Misc", "Symbol"),
-        TO ("TO", "to", Words.TO_WORDS),
+        //TO ("TO", "to", Words.TO_WORDS),
         //UH ("Misc", "Interjection"),
         //VB ("VB", "Verb", Words.VB_WORDS),
         //VBD ("VBD", "Past Tense Verb", Words.VBD_WORDS),
@@ -107,7 +107,7 @@ public class Words {
     //private static String[] RP_WORDS = {""};
     //private static String[] SYM_WORDS = {""};
 
-    private static String[] TO_WORDS = {"to"};
+    //private static String[] TO_WORDS = {"to"};
 
     //private static String[] UH_WORDS = {""};
 
