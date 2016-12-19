@@ -5,12 +5,12 @@ import finalproject.Words.TreebankTags;
 public class Generator {
 
     /**
-     * The Main Actvitiy runs the sentence generator.
+     * The Main Activity runs the sentence generator.
      */
     public static void main(String[] args) {
         String sentence = generateSentence();
         sentence = sentence.substring(0, 1).toUpperCase() + sentence.substring(1);
-        sentence = sentence + Words.PU_WORDS[0];
+        sentence += Words.getWordFromTag(TreebankTags.PU);
         System.out.println(sentence);
     }
 
@@ -55,23 +55,23 @@ public class Generator {
         switch(i) {
             // NP --> DT NN
             default:
-            case 0: return Words.getDTWord() + " " + Words.getNNWord();
+            case 0: return Words.getWordFromTag(TreebankTags.DT) + " " + Words.getWordFromTag(TreebankTags.NN);
             // NP --> NNP
-            case 1: return Words.getNNPWord();
+            case 1: return Words.getWordFromTag(TreebankTags.NNP);
 
             // NP --> DT ADJP NN
-            case 2: return Words.getDTWord() + " " + generateAdjectivePhrase() + " " + Words.getNNWord();
+            case 2: return Words.getWordFromTag(TreebankTags.DT) + " " + generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.NN);
             // NP --> DT JJR NN
-            case 3: return Words.getDTWord() + " " + Words.getJJRWord() + " " + Words.getNNWord();
+            case 3: return Words.getWordFromTag(TreebankTags.DT) + " " + Words.getWordFromTag(TreebankTags.JJR) + " " + Words.getWordFromTag(TreebankTags.NN);
             // NP --> DT JJS NN
-            case 4: return Words.getDTWord() + " " + Words.getJJSWord() + " " + Words.getNNWord();
+            case 4: return Words.getWordFromTag(TreebankTags.DT) + " " + Words.getWordFromTag(TreebankTags.JJS) + " " + Words.getWordFromTag(TreebankTags.NN);
 
             // NP --> ADJP NNP
-            case 5: return generateAdjectivePhrase() + " " + Words.getNNPWord();
+            case 5: return generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.NNP);
             // NP --> DT JJR NNP
-            case 6: return Words.getDTWord() + " " + Words.getJJRWord() + " " + Words.getNNPWord();
+            case 6: return Words.getWordFromTag(TreebankTags.DT) + " " + Words.getWordFromTag(TreebankTags.JJR) + " " + Words.getWordFromTag(TreebankTags.NNP);
             // NP --> DT JJS NNP
-            case 7: return Words.getDTWord() + " " + Words.getJJSWord() + " " + Words.getNNPWord();
+            case 7: return Words.getWordFromTag(TreebankTags.DT) + " " + Words.getWordFromTag(TreebankTags.JJS) + " " + Words.getWordFromTag(TreebankTags.NNP);
         }
     }
 
@@ -86,29 +86,29 @@ public class Generator {
         switch(i) {
             // NP --> DT NNS
             default:
-            case 0: return Words.getPluralDTWord() + " " + Words.getNNSWord();
+            case 0: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.NNS);
             // NP --> DT NNPS
-            case 1: return Words.getPluralDTWord() + " " + Words.getNNPSWord();
+            case 1: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.NNPS);
             // NP --> NNPS
-            case 2: return Words.getNNPSWord();
+            case 2: return Words.getWordFromTag(TreebankTags.NNPS);
             // NP --> DT ADJP NNS
-            case 3: return Words.getPluralDTWord() + " " + generateAdjectivePhrase() + " " + Words.getNNSWord();
+            case 3: return Words.getWordFromTag(TreebankTags.DTS) + " " + generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.NNS);
             // NP --> DT JJR NNS
-            case 4: return Words.getPluralDTWord() + " " + Words.getJJRWord() + " " + Words.getNNSWord();
+            case 4: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.JJR) + " " + Words.getWordFromTag(TreebankTags.NNS);
             // NP --> DT JJS NNS
-            case 5: return Words.getPluralDTWord() + " " + Words.getJJSWord() + " " + Words.getNNSWord();
+            case 5: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.JJS) + " " + Words.getWordFromTag(TreebankTags.NNS);
 
             // NP --> DT ADJP NNPS
-            case 6: return Words.getPluralDTWord() + " " + generateAdjectivePhrase() + " " + Words.getNNPSWord();
+            case 6: return Words.getWordFromTag(TreebankTags.DTS) + " " + generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.NNPS);
             // NP --> ADJP NNPS
-            case 7: return generateAdjectivePhrase() + " " + Words.getNNPSWord();
+            case 7: return generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.NNPS);
 
             // NP --> DT JJR NNPS
-            case 8: return Words.getPluralDTWord() + " " + Words.getJJRWord() + " " + Words.getNNPSWord();
+            case 8: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.JJR) + " " + Words.getWordFromTag(TreebankTags.NNPS);
             // NP --> JJR NNPS
-            case 9: return Words.getJJRWord() + " " + Words.getNNPSWord();
+            case 9: return Words.getWordFromTag(TreebankTags.JJR) + " " + Words.getWordFromTag(TreebankTags.NNPS);
             // NP --> DT JJS NNPS
-            case 10: return Words.getPluralDTWord() + " " + Words.getJJSWord() + " " + Words.getNNPSWord();
+            case 10: return Words.getWordFromTag(TreebankTags.DTS) + " " + Words.getWordFromTag(TreebankTags.JJS) + " " + Words.getWordFromTag(TreebankTags.NNPS);
             // -- Plural Only NP --> NP CC NP
             case 11: return generateSingularOrPluralNounPhrase() + " " + Words.getWordFromTag(TreebankTags.CC) + " " + generateSingularOrPluralNounPhrase();
         }
@@ -123,9 +123,9 @@ public class Generator {
         switch(i) {
             default:
                 // ADJP --> JJ
-            case 0: case 3: case 5: return Words.getJJWord();
+            case 0: case 3: case 5: Words.getWordFromTag(TreebankTags.JJ);
             // ADJP --> RB JJ
-            case 1: case 4: case 6: return Words.getRBWord() + " " + Words.getJJWord();
+            case 1: case 4: case 6: return Words.getWordFromTag(TreebankTags.RB) + " " + Words.getWordFromTag(TreebankTags.JJ);
             // ADJP --> ADJP CC ADJP
             case 2: return generateAdjectivePhrase() + " " + Words.getWordFromTag(TreebankTags.CC) + " " + generateAdjectivePhrase();
         }
@@ -137,7 +137,7 @@ public class Generator {
      * @return a preopositional phrase stored in a String.
      */
     private static String generatePrepositionalPhrase() {
-        return Words.getINWord() + " " + generateSingularOrPluralNounPhrase();
+        return Words.getWordFromTag(TreebankTags.IN) + " " + generateSingularOrPluralNounPhrase();
     }
 
     /**
@@ -151,21 +151,21 @@ public class Generator {
         switch(i) {
             // VP --> VBZ
             default:
-            case 0: return Words.getVBZWord();
+            case 0: return Words.getWordFromTag(TreebankTags.VBZ);
             // VP --> VBZ NP
-            case 1: return Words.getVBZWord() + " " + generateSingularOrPluralNounPhrase();
+            case 1: return Words.getWordFromTag(TreebankTags.VBZ) + " " + generateSingularOrPluralNounPhrase();
             // VP --> VBZ PP
-            case 2: return Words.getVBZWord() + " " + generatePrepositionalPhrase();
+            case 2: return Words.getWordFromTag(TreebankTags.VBZ) + " " + generatePrepositionalPhrase();
             // VP --> VBZ RB
-            case 3: return Words.getVBZWord() + " " + Words.getRBWord();
+            case 3: return Words.getWordFromTag(TreebankTags.VBZ) + " " + Words.getWordFromTag(TreebankTags.RB);
             // VP --> VBZ NP RB
-            case 4: return Words.getVBZWord() + " " + generateSingularOrPluralNounPhrase() + " " + Words.getRBWord();
+            case 4: return Words.getWordFromTag(TreebankTags.VBZ) + " " + generateSingularOrPluralNounPhrase() + " " + Words.getWordFromTag(TreebankTags.RB);
             // VP --> VBZ RB PP
-            case 5: return Words.getVBZWord() + " " + Words.getRBWord() + " " + generatePrepositionalPhrase();
+            case 5: return Words.getWordFromTag(TreebankTags.VBZ) + " " + Words.getWordFromTag(TreebankTags.RB) + " " + generatePrepositionalPhrase();
             // VP --> VBZ RBR PP
-            case 6: return Words.getVBZWord() + " " + Words.getRBRWord() + " " + generatePrepositionalPhrase();
+            case 6: return Words.getWordFromTag(TreebankTags.VBZ) + " " + Words.getWordFromTag(TreebankTags.RBR) + " " + generatePrepositionalPhrase();
             // VP --> VBZ RBS PP
-            case 7: return Words.getVBZWord() + " " + Words.getRBSWord() + " " + generatePrepositionalPhrase();
+            case 7: return Words.getWordFromTag(TreebankTags.VBZ) + " " + Words.getWordFromTag(TreebankTags.RBS) + " " + generatePrepositionalPhrase();
         }
     }
 
@@ -180,21 +180,21 @@ public class Generator {
         switch(i) {
             // VP --> VBP
             default:
-            case 0:  return Words.getVBPWord();
+            case 0:  return Words.getWordFromTag(TreebankTags.VBP);
             // VP --> VBP NN
-            case 1: return Words.getVBPWord() + " " + generateSingularOrPluralNounPhrase();
+            case 1: return Words.getWordFromTag(TreebankTags.VBP) + " " + generateSingularOrPluralNounPhrase();
             // VP --> VBP PP
-            case 2: return Words.getVBPWord() + " " + generatePrepositionalPhrase();
+            case 2: return Words.getWordFromTag(TreebankTags.VBP) + " " + generatePrepositionalPhrase();
             // VP --> VBP RB
-            case 3: return Words.getVBPWord() + " " + Words.getRBWord();
+            case 3: return Words.getWordFromTag(TreebankTags.VBP) + " " + Words.getWordFromTag(TreebankTags.RB);
             // VP --> VBP NP RB
-            case 4: return Words.getVBPWord() + " " + generateSingularOrPluralNounPhrase() + " " + Words.getRBWord();
+            case 4: return Words.getWordFromTag(TreebankTags.VBP) + " " + generateSingularOrPluralNounPhrase() + " " + Words.getWordFromTag(TreebankTags.RB);
             // VP --> VBP RB PP
-            case 5: return Words.getVBPWord() + " " + Words.getRBWord() + " " + generatePrepositionalPhrase();
+            case 5: return Words.getWordFromTag(TreebankTags.VBP) + " " + Words.getWordFromTag(TreebankTags.RB) + " " + generatePrepositionalPhrase();
             // VP --> VBP RBR PP
-            case 6: return Words.getVBPWord() + " " + Words.getRBRWord() + " " + generatePrepositionalPhrase();
+            case 6: return Words.getWordFromTag(TreebankTags.VBP) + " " + Words.getWordFromTag(TreebankTags.RBR) + " " + generatePrepositionalPhrase();
             // VP --> VBP RBS PP
-            case 7: return Words.getVBPWord() + " " + Words.getRBSWord() + " " + generatePrepositionalPhrase();
+            case 7: return Words.getWordFromTag(TreebankTags.VBP) + " " + Words.getWordFromTag(TreebankTags.RBS) + " " + generatePrepositionalPhrase();
         }
     }
 

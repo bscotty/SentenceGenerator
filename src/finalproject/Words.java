@@ -9,6 +9,7 @@ public class Words {
         CC ("CD", "Coordinating Conjunction", Words.CC_WORDS),
         //CD ("Misc", "Cardinal Number"),
         DT ("DT", "Determiner", Words.DT_WORDS),
+        DTS ("DT", "Determiner", Words.PLURAL_DT_WORDS),
         //EX ("Misc", "Existential There"),
         //FW ("Misc", "Foreign Word"),
         IN ("IN", "Preposition", Words.IN_WORDS),
@@ -61,58 +62,58 @@ public class Words {
 
     //private static String[] _WORDS = {""};
 
-    public static String[] CC_WORDS = {"and", "or"};
+    private static String[] CC_WORDS = {"and", "or"};
 
     //private static String[] CD_WORDS = {""};
 
-    public static String[] DT_WORDS = {"a", /*"an",*/ "no", "the", "another", "each",
+    private static String[] DT_WORDS = {"a", /*"an",*/ "no", "the", "another", "each",
             "that","this", "any"};
-    public static String[] PLURAL_DT_WORDS = {"every", "some", "either" /* Remove? */,
+    private static String[] PLURAL_DT_WORDS = {"every", "some", "either" /* Remove? */,
             "neither" /* Remove? */, "these", "those", "all", "both" };
 
     //private static String[] EX_WORDS = {""};
     //private static String[] FW_WORDS = {""};
 
-    public static String[] IN_WORDS = {"in", "from", "with"};
+    private static String[] IN_WORDS = {"in", "from", "with"};
 
-    public static String[] JJ_WORDS = {"happy-go-lucky", "fourth", "fourth-largest",
+    private static String[] JJ_WORDS = {"happy-go-lucky", "fourth", "fourth-largest",
             "superior", "nonhuman", "many", "higgildy-piggildy", "warm", "strange", "cozy"};
-    public static String[] JJR_WORDS = {"better", "worse", "happier", "sadder"};
-    public static String[] JJS_WORDS = {"best", "worst", "happiest", "saddest"};
+    private static String[] JJR_WORDS = {"better", "worse", "happier", "sadder"};
+    private static String[] JJS_WORDS = {"best", "worst", "happiest", "saddest"};
 
     //private static String[] LS_WORDS = {""};
     //private static String[] MD_WORDS = {""};
 
-    public static String[] NN_WORDS = {"science", "fiction", "slalom", "hootenanny",
+    private static String[] NN_WORDS = {"science", "fiction", "slalom", "hootenanny",
             "kerfuffle", "inquisition"};
-    public static String[] NNS_WORDS = {"primates", "tools", "aliens", "ponies",
+    private static String[] NNS_WORDS = {"primates", "tools", "aliens", "ponies",
             "players", "orcs", "conquistadors"};
-    public static String[] NNP_WORDS = {"Adam Meyers", "New York University", "Brexit"};
-    public static String[] NNPS_WORDS = {"Kardashians", "Obamas", "Kennedys", "Americas"};
+    private static String[] NNP_WORDS = {"Adam Meyers", "New York University", "Brexit"};
+    private static String[] NNPS_WORDS = {"Kardashians", "Obamas", "Kennedys", "Americas"};
 
     //private static String[] PDT_WORDS = {"all", "both", "half", "many", "nary", "quite", "rather", "such"};
     //private static String[] POS_WORDS = {""};
     //private static String[] PRP_WORDS = {""};
     //private static String[] PRPS_WORDS = {""};
 
-    public static String[] RB_WORDS = {"badly", "a little", "well", "excitedly"};
+    private static String[] RB_WORDS = {"badly", "a little", "well", "excitedly"};
     // public static String[] RB_WORDS_PROBLEM = {"quite", "too", "very"/*, "far", "n't"*/};
-    public static String[] RBR_WORDS = {"worse", "farther", "less", "better"};
-    public static String[] RBS_WORDS = {"worst", "farthest", "least", "best"};
+    private static String[] RBR_WORDS = {"worse", "farther", "less", "better"};
+    private static String[] RBS_WORDS = {"worst", "farthest", "least", "best"};
 
     //private static String[] RP_WORDS = {""};
     //private static String[] SYM_WORDS = {""};
 
-    public static String[] TO_WORDS = {"to"};
+    private static String[] TO_WORDS = {"to"};
 
     //private static String[] UH_WORDS = {""};
 
-    public static String[] VB_WORDS = {"expunge"};
-    public static String[] VBD_WORDS = {"were"};
-    public static String[] VBG_WORDS = {"asking"};
-    public static String[] VBN_WORDS = {"looked"};
-    public static String[] VBP_WORDS = {"eat", "do", "engage", "engulf", "enrage"};
-    public static String[] VBZ_WORDS = {"eats", "does", "engages", "engulfs", "enrages"};
+    private static String[] VB_WORDS = {"expunge"};
+    private static String[] VBD_WORDS = {"were"};
+    private static String[] VBG_WORDS = {"asking"};
+    private static String[] VBN_WORDS = {"looked"};
+    private static String[] VBP_WORDS = {"eat", "do", "engage", "engulf", "enrage"};
+    private static String[] VBZ_WORDS = {"eats", "does", "engages", "engulfs", "enrages"};
 
     //private static String[] WDT_WORDS = {""};
     //private static String[] WP_WORDS = {""};
