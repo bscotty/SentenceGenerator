@@ -53,7 +53,7 @@ public class Words {
         private final String name;
         private String[] exampleWords;
 
-        private TreebankTags (String t, String n, String[] words) {
+        TreebankTags (String t, String n, String[] words) {
             tag = t;
             name = n;
             exampleWords = words;
@@ -140,6 +140,8 @@ public class Words {
             }
             return tag.exampleWords[i];
         } else {
+            System.out.println("PoS randomly chosen " + tag.tag + " has no words in the word bank." +
+                    " To avoid errors like this in the future, add at least one word for every PoS.");
             return "";
         }
     }
@@ -148,6 +150,7 @@ public class Words {
     // Initializer
     // -------------------------------------------------
     public static void initFromCustomWB(String filepath) {
+        System.out.println("Creating custom wordbank from input located at: " + filepath);
         for (TreebankTags t : TreebankTags.values()) {
             t.exampleWords = null;
         }
@@ -184,6 +187,15 @@ public class Words {
                 }
             }
         }
+    }
+
+    public static void printSupportedPoS() {
+        System.out.println("Supported tags: ");
+        for (TreebankTags t :
+                TreebankTags.values()) {
+            System.out.print(t.tag + ", ");
+        }
+        System.out.println("\n");
     }
 
 }

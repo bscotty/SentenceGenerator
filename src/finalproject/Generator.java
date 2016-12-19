@@ -9,6 +9,7 @@ public class Generator {
      */
     public static void main(String[] args) {
         if(args.length == 1) {
+            Words.printSupportedPoS();
             Words.initFromCustomWB(args[0]);
         }
 
