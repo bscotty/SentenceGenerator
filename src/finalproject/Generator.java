@@ -9,10 +9,10 @@ public class Generator {
      */
     public static void main(String[] args) {
         Words.printSupportedPoS();
-        if(args.length > 1) {
+        if(args.length == 1) {
             Words.initFromCustomWB(args[0]);
         }
-        if (args.length == 2 && args[1].equals("showRules")) {
+        else if(args.length == 2 && args[1].equals("showRules")) {
             Words.initFromCustomWB(args[0]);
             ShowRules = true;
             System.out.println("Showing constituency rules used.");
